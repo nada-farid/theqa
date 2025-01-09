@@ -72,7 +72,7 @@
                     @endif
                     <span class="help-block">{{ trans('cruds.service.fields.inside_image_helper') }}</span>
                 </div>
-                {{-- <div class="form-group">
+                <div class="form-group">
                 <label for="short_description">{{ trans('cruds.service.fields.short_description') }}</label>
                 <textarea class="form-control {{ $errors->has('short_description') ? 'is-invalid' : '' }}" name="short_description" id="short_description">{{ old('short_description', $service->short_description) }}</textarea>
                 @if ($errors->has('short_description'))
@@ -82,7 +82,7 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.service.fields.short_description_helper') }}</span>
             </div>
-            <div class="form-group">
+            {{--<div class="form-group">
                 <label for="small_image">{{ trans('cruds.service.fields.small_image') }}</label>
                 <div class="needsclick dropzone {{ $errors->has('small_image') ? 'is-invalid' : '' }}" id="small_image-dropzone">
                 </div>

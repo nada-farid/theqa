@@ -186,7 +186,7 @@
                             <div class="hovered-section px-3 align-items-center justify-content-center flex-column">
                                 <h4>{{ $service->name }}</h4>
 
-                                <p>{{ $service->short_description }}</p>
+                                <p> {{Str::limit( $service->short_description, 300) }} </p>
                                 <a href="{{ route('frontend.service', $service->id) }}"
                                     class="d-flex align-items-center justify-content-center text-white">
                                     <i class="fa-solid fa-plus"></i>

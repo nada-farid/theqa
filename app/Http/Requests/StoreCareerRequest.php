@@ -28,9 +28,11 @@ class StoreCareerRequest extends FormRequest
             'email' => [
                 'string',
                 'required',
+                'email'
             ],
             'phone' => [
                 'nullable',
+                'regex:/^05\d{8}$/',
             ],
             'job' => [
                 'string',
@@ -39,6 +41,13 @@ class StoreCareerRequest extends FormRequest
             'cv' => [
                 'required',
             ],
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'phone.regex' => 'رقم الجوال يجب ان يكون 10 أرقام ويبدأ ب 05',
         ];
     }
 }

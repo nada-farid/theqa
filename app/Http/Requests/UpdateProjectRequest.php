@@ -58,4 +58,11 @@ class UpdateProjectRequest extends FormRequest
             ],
         ];
     }
+    public function messages()
+    {
+        return [
+            'image.required' => __('global.Please upload an image with required dimensions'),
+            'inner_image.required' => __('global.Please upload inside image with required dimensions'),
+        ];
+    }
 }

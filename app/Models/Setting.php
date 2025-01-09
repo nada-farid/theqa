@@ -17,7 +17,7 @@ class Setting extends Model implements HasMedia
 
     public $table = 'settings';
 
-    public $translatable = ['description','about_description' ,'home_section_1' , 'home_section_2' , 'why_us_text' , 'vision_text' , 'mission_text','chairman_description','contact_text','chairman_description'];
+    public $translatable = ['description','about_description' ,'home_section_1' , 'home_section_2' , 'why_us_text' , 'vision_text' , 'mission_text','chairman_description','contact_text','chairman_description','short_descrption'];
 
     protected $dates = [
         'created_at',

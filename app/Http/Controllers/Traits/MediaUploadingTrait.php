@@ -18,7 +18,7 @@ trait MediaUploadingTrait
         if (request()->has('width') || request()->has('height')) {
             $this->validate(request(), [
                 'file' => sprintf(
-                    'image|dimensions:max_width=%s,max_height=%s',
+                    'image|dimensions:width=%s,height=%s',
                     request()->input('width', 100000),
                     request()->input('height', 100000)
                 ),

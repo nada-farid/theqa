@@ -325,6 +325,10 @@ return [
     'Please upload an image with required dimensions'=>'من فضلك قم برفع الصورة المطلوبة بالمقاسات المطلوبة',
     'Please upload inside image with required dimensions'=>'من فضلك قم برفع صورة التفاصيل بالمقاسات المطلوبة',
     'Please upload about image with required dimensions'=>'من فضلك قم برفع صورة من نحن بالمقاسات المطلوبة',
+    'Please upload chairman image with required dimensions'=>'من فضلك قم برفع صورة رئيس الأدارة بالمقاسات المطلوبة',
     'Please upload inner image with required dimensions'=>'من فضلك قم برفع الصورة الداخلية بالمقاسات المطلوبة',
+    'Please upload logo with required dimensions' =>' من فضلك قم يرفع صورة الشعار بالمقاسات النطلوبة',
+     'Please upload whit logo with required dimensions'=> ' من فضلك قم يرفع صورة الشعار  بخليفة بيضاء بالمقاسات النطلوبة',
+
 
 ];

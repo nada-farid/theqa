@@ -163,7 +163,7 @@
                             {{ $errors->first('white_logo') }}
                         </div>
                     @endif
-                    <span class="help-block">{{ trans('cruds.setting.fields.logo_helper') }}</span>
+                    <span class="help-block">{{ trans('cruds.setting.fields.white_logo_helper') }}</span>
                 </div>
                 <div class="form-group">
                     <label for="chairman_description">{{ trans('cruds.setting.fields.chairman_description') }}</label>
@@ -581,8 +581,8 @@
             },
             params: {
                 size: 40,
-                width: 4096,
-                height: 4096
+                width: 470,
+                height: 332
             },
             success: function(file, response) {
                 $('form').find('input[name="logo"]').remove()
@@ -905,8 +905,8 @@
             },
             params: {
                 size: 20,
-                width: 4096,
-                height: 4096
+                width: 235,
+                height: 117
             },
             success: function(file, response) {
                 $('form').find('input[name="signature_image"]').remove()

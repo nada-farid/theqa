@@ -223,8 +223,8 @@
     },
     params: {
       size: 40,
-      width: 4096,
-      height: 4096
+      width: 387,
+      height: 400
     },
     success: function (file, response) {
       $('form').find('input[name="image"]').remove()
@@ -278,8 +278,8 @@
     },
     params: {
       size: 40,
-      width: 4096,
-      height: 4096
+      width: 1220,
+      height: 600
     },
     success: function (file, response) {
       $('form').find('input[name="inner_image"]').remove()
@@ -333,8 +333,9 @@ Dropzone.options.photosDropzone = {
     },
     params: {
       size: 2,
-      width: 4096,
-      height: 4096
+      width: 387,
+      height: 400
+
     },
     success: function (file, response) {
       $('form').append('<input type="hidden" name="photos[]" value="' + response.name + '">')

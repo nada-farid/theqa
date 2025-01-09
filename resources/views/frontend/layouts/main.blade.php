@@ -165,47 +165,40 @@
     <footer class="py-5 footer-part">
         <div class="footer-content raw-container text-center">
             <div class="row d-flex align-items-center justify-content-center">
-                {{-- <div class="col-lg-5 col-md-8 col-sm-12 col-12">
+                <div class="col-lg-5 col-md-8 col-sm-12 col-12">
                     <div class="footer-items row g-2 d-flex align-items-center justify-content-center">
                         <div class="col-md-2 col-2">
                             <div class="f-icon">
-                                <a href=""> <i class="fa-regular fa-envelope"></i></a>
+                                <a href="{{$setting->facebook}}"> <i class="fa-brands fa-facebook"></i></a>
                             </div>
                         </div>
 
                         <div class="col-md-2 col-2">
                             <div class="f-icon">
-                                <a href="">
-                                    <i class="fa-regular fa-calendar-days"></i>
+                                <a href="{{$setting->youtubte}}">
+                                    <i class="fa-brands fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-2 col-2">
+                            <div class="f-icon">
+                                <a href="{{$setting->twitter}}">
+                                    <i class="fa-brands fa-twitter"></i>
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-2 col-2">
                             <div class="f-icon">
-                                <a href="">
-                                    <i class="fa-regular fa-comment-dots"></i>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="col-md-2 col-2">
-                            <div class="f-icon">
-                                <a href="">
-                                    <i class="fa-solid fa-shield"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-2">
-                            <div class="f-icon">
-                                <a href="">
-                                    <i class="fa-regular fa-clock"></i>
+                                <a href="{{$setting->whatsapp}}">
+                                    <i class="fa-brands fa-whatsapp"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
-                </div> --}}
+                </div>
             </div>
-
+    
             <div class="text-center my-3">
                 <p class="text-white">
                     {{trans('front.CopyRight')}}

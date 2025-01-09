@@ -325,6 +325,8 @@ return [
     'Please upload an image with required dimensions'=>'Please upload the required image with the required dimensions',
     'Please upload inside image with required dimensions'=>'Please upload the details image with the required dimensions',
     'Please upload about image with required dimensions'=>'Please upload an image of us with the required dimensions',
+    'Please upload chairman image with required dimensions'=> 'Please upload chairman Image with the required dimensions',
     'Please upload inner image with required dimensions'=>'Please upload the inner image with the required dimensions',
-
+    'Please upload logo with required dimensions' =>' Please upload the logo image with the required dimensions',
+    'Please upload white logo with required dimensions'=> ' Please upload the white logo with the required dimensions',
 ];
