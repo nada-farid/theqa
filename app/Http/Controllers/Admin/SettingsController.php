@@ -50,7 +50,7 @@ class SettingsController extends Controller
         }
 
         if ($request->input('logo', false)) {
-            if (! $setting->logo || $request->input('logo') !== $setting->logo->file_name) {
+            if (!$setting->logo || $request->input('logo') !== $setting->logo->file_name) {
                 if ($setting->logo) {
                     $setting->logo->delete();
                 }
@@ -59,15 +59,6 @@ class SettingsController extends Controller
         } elseif ($setting->logo) {
             $setting->logo->delete();
         }
-
-        if ($request->input('logo', false)) {
-            if (!$setting->logo || $request->input('logo') !== $setting->logo->file_name) {
-                if ($setting->logo) {
-                    $setting->logo->delete();
-                }
-                $setting->addMedia(storage_path('tmp/uploads/' . basename($request->input('logo'))))->toMediaCollection('logo');
-            }
-        } 
 
         if ($request->input('white_logo', false)) {
             if (!$setting->white_logo || $request->input('white_logo') !== $setting->white_logo->file_name) {

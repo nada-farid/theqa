@@ -231,8 +231,8 @@
           }
       },
       init: function() {
-          @if (isset($new) && $new->inside_image)
-              var file = {!! json_encode($new->inside_image) !!}
+          @if (isset($neww) && $neww->inside_image)
+              var file = {!! json_encode($neww->inside_image) !!}
               this.options.addedfile.call(this, file)
               this.options.thumbnail.call(this, file, file.preview ?? file.preview_url)
               file.previewElement.classList.add('dz-complete')
