@@ -30,8 +30,8 @@
     <!----slider---->
     <script src="https://code.jquery.com/jquery.js"></script>
 
-    <script src="{{ asset('frontend/src/skdslider.min.js') }}"></script>
-    <link href="{{ asset('frontend/src/skdslider.css') }}" rel="stylesheet">
+    <script src="{{ asset('frontend/src/' . app()->getLocale() . '/skdslider.min.js') }}"></script>
+    <link href="{{ asset('frontend/src/' . app()->getLocale() . '/skdslider.css') }}" rel="stylesheet">
     <!----menu---->
     <link rel="stylesheet" href="{{ asset('frontend/css/' . app()->getLocale() . '/ozmenu.css') }}" />
 
@@ -209,10 +209,10 @@
     @include('sweetalert::alert')
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script> -->
-    <script src="{{ asset('frontend/js/all.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/' . app()->getLocale() . '/all.min.js') }}"></script>
 
 
-    <script src="{{ asset('frontend/js/index.js') }}"></script>
+    <script src="{{ asset('frontend/js/' . app()->getLocale() . '/index.js') }}"></script>
 
 
     <!----slider---->
@@ -233,7 +233,7 @@
         ga('send', 'pageview');
     </script>
     <!----slider---->
-    <script src="{{ asset('frontend/js/ozmenu.js') }}"></script>
+    <script src="{{ asset('frontend/js/' . app()->getLocale() . '/ozmenu.js') }}"></script>
     @yield('scripts')
 
 </body>

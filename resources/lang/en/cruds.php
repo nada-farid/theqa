@@ -342,7 +342,7 @@ return [
         'title_singular' => 'General Setting',
     ],
     'team' => [
-        'title'          => 'Team',
+        'title'          => 'Said ',
         'title_singular' => 'Team',
         'fields'         => [
             'id'                => 'ID',

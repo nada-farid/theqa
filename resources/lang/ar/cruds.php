@@ -342,8 +342,8 @@ return [
         'title_singular' => ' اعدادات عامة',
     ],
     'team' => [
-        'title'          => 'الفريق',
-        'title_singular' => 'الفريق',
+        'title'          => 'ماذا قالو عنا',
+        'title_singular' => 'ماذا قالو عنا',
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => ' ',

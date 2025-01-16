@@ -127,6 +127,18 @@ class SettingsController extends Controller
             $setting->inner_image->delete();
         }
 
+        
+        if ($request->input('signature_image', false)) {
+            if (! $setting->signature_image || $request->input('signature_image') !== $setting->signature_image->file_name) {
+                if ($setting->signature_image) {
+                    $setting->signature_image->delete();
+                }
+                $setting->addMedia(storage_path('tmp/uploads/' . basename($request->input('signature_image'))))->toMediaCollection('signature_image');
+            }
+        } elseif ($setting->signature_image) {
+            $setting->signature_image->delete();
+        }
+
         Alert::success('Success', 'updated Successfully ');
 
         return redirect()->route('admin.settings.edit');

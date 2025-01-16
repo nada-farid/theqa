@@ -137,9 +137,9 @@
                                 <p>
                                     {!! $setting->chairman_description !!}
                                 </p>
-                                @if ($setting->signeture_image)
+                                @if ($setting->signature_image)
                                     <div class="text-end mt-3">
-                                        <img src="{{ $setting->signeture_image->getUrl() }}" alt="" />
+                                        <img src="{{ $setting->signature_image->getUrl() }}" alt="" />
                                     </div>
                                 @endif
                             </div>
@@ -160,11 +160,9 @@
                 <p class="text-capitalize text-white">
                 <div class="text-white">{!! $setting->home_section_1 !!}</div>
                 </p>
-                @if ($setting->white_logo)
                     <div class="back-logo">
-                        <img src="{{ $setting->white_logo->getUrl() }}" alt="background logo" />
+                        <img src="{{asset('frontend/assets/images/logo-white 1.png')}}" alt="background logo" />
                     </div>
-                @endif
             </div>
         </div>
     </section>
