@@ -74,6 +74,16 @@ class Setting extends Model implements HasMedia
         return $date->format('Y-m-d H:i:s');
     }
 
+    protected static function booted()
+    {
+        static::retrieved(function ($model) {
+            foreach ($model->getTranslatableAttributes() as $name) {
+                $fallbackLocale = app()->getLocale() === 'ar' ? 'en' : 'ar';
+                $model->{$name} = $model->getTranslation($name,app()->getLocale()) ?  $model->getTranslation($name,app()->getLocale()) :  $model->getTranslation($name, $fallbackLocale) ;
+            }
+        });
+    }
+
     public function registerMediaConversions(Media $media = null): void
     {
         $this->addMediaConversion('thumb')->fit('crop', 50, 50);
@@ -188,14 +198,4 @@ class Setting extends Model implements HasMedia
         return $file;
     }
 
-    public function toArray()
-    {
-        $attributes = parent::toArray();
-
-        foreach ($this->getTranslatableAttributes() as $name) {
-            $attributes[$name] = $this->getTranslation($name, app()->getLocale());
-        }
-
-        return $attributes;
-    }
 }

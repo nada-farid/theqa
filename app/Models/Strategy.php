@@ -11,7 +11,7 @@ use Spatie\Translatable\HasTranslations;
 
 class Strategy extends Model
 {
-    use SoftDeletes, HasFactory,  HasTranslations;
+    use SoftDeletes, HasFactory, HasTranslations;
 
 
     public $table = 'strategies';
@@ -33,19 +33,19 @@ class Strategy extends Model
         'deleted_at',
     ];
 
+    protected static function booted()
+    {
+        static::retrieved(function ($model) {
+            foreach ($model->getTranslatableAttributes() as $name) {
+                $fallbackLocale = app()->getLocale() === 'ar' ? 'en' : 'ar';
+                $model->{$name} = $model->getTranslation($name,app()->getLocale()) ?  $model->getTranslation($name,app()->getLocale()) :  $model->getTranslation($name, $fallbackLocale) ;
+            }
+        });
+    }
+
     protected function serializeDate(DateTimeInterface $date)
     {
         return $date->format('Y-m-d H:i:s');
     }
 
-    public function toArray()
-    {
-        $attributes = parent::toArray();
-
-        foreach ($this->getTranslatableAttributes() as $name) {
-            $attributes[$name] = $this->getTranslation($name, app()->getLocale());
-        }
-
-        return $attributes;
-    }
 }

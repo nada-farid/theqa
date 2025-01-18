@@ -45,6 +45,16 @@ class Neww extends Model implements HasMedia
         'deleted_at',
     ];
 
+    protected static function booted()
+    {
+        static::retrieved(function ($model) {
+            foreach ($model->getTranslatableAttributes() as $name) {
+                $fallbackLocale = app()->getLocale() === 'ar' ? 'en' : 'ar';
+                $model->{$name} = $model->getTranslation($name,app()->getLocale()) ?  $model->getTranslation($name,app()->getLocale()) :  $model->getTranslation($name, $fallbackLocale) ;
+            }
+        });
+    }
+
     protected function serializeDate(DateTimeInterface $date)
     {
         return $date->format('Y-m-d H:i:s');
@@ -76,17 +86,6 @@ class Neww extends Model implements HasMedia
     public function setDateAttribute($value)
     {
         $this->attributes['date'] = $value ? Carbon::createFromFormat(config('panel.date_format'), $value)->format('Y-m-d') : null;
-    }
-
-    public function toArray()
-    {
-        $attributes = parent::toArray();
-
-        foreach ($this->getTranslatableAttributes() as $name) {
-            $attributes[$name] = $this->getTranslation($name, app()->getLocale());
-        }
-
-        return $attributes;
     }
 
     public function getInsideImageAttribute()

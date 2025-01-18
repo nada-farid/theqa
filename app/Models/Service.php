@@ -40,6 +40,16 @@ class Service extends Model implements HasMedia
         'deleted_at',
     ];
 
+    protected static function booted()
+    {
+        static::retrieved(function ($model) {
+            foreach ($model->getTranslatableAttributes() as $name) {
+                $fallbackLocale = app()->getLocale() === 'ar' ? 'en' : 'ar';
+                $model->{$name} = $model->getTranslation($name,app()->getLocale()) ?  $model->getTranslation($name,app()->getLocale()) :  $model->getTranslation($name, $fallbackLocale) ;
+            }
+        });
+    }
+
     protected function serializeDate(DateTimeInterface $date)
     {
         return $date->format('Y-m-d H:i:s');
@@ -90,16 +100,5 @@ class Service extends Model implements HasMedia
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');
-    }
-
-    public function toArray()
-    {
-        $attributes = parent::toArray();
-
-        foreach ($this->getTranslatableAttributes() as $name) {
-            $attributes[$name] = $this->getTranslation($name, app()->getLocale());
-        }
-
-        return $attributes;
     }
 }
