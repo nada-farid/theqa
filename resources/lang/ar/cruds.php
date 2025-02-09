@@ -153,6 +153,7 @@ return [
             'whatsapp_helper'             => ' ',
             'snapchat'                    => 'رابط سناب شات',
             'snapchat_helper'             => ' ',
+            'system_link'                 => 'رابط النظام',
         ],
     ],
     'slider' => [

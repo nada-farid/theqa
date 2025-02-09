@@ -153,6 +153,7 @@ return [
             'whatsapp_helper'             => ' ',
             'snapchat'                    => 'snapchat',
             'snapchat_helper'             => ' ',
+            'system_link'                 => 'System Link',
         ],
     ],
     'slider' => [

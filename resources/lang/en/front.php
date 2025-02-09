@@ -45,5 +45,12 @@ return [
     'MessageFromEM'=>'Message From EM',
     'ApplyNow'=>'Apply Now',
     'PleaseSelect'=>'Please Select',
+    'CustomerArea'=>'Customer Area',
+    'CloseLogin'=>'Close Login',
+    'CustomerLogin'=>'Customer Login',
+    'ManagementLogin'=>'Management Login',
+    'Password'=>'password',
+    'SignInToYourAccount'=>'Sign in to your account',
+    'Countinue'=>'Countinue',
 
 ];

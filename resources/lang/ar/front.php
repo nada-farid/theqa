@@ -45,6 +45,14 @@ return [
     'MessageFromEM'=>'كلمة رئيس المجلس',
     'ApplyNow'=>'قدم الأن',
     'PleaseSelect'=>'من فضلك قم بالأختيار',
+    'CustomerArea'=>'منطقة العملاء',
+    'CloseLogin'=>'اغلاق الدخول',
+    'CustomerLogin'=>'دخول العملاء',
+    'ManagementLogin'=>'دخول الإدارة',
+    'Password'=>'كلمة المرور',
+    'SignInToYourAccount'=>'تسجيل الدخول إلى حسابك',
+    'Countinue'=>'استمرار',
+
     
 
 ];

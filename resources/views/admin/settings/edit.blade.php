@@ -120,6 +120,17 @@
                     <span class="help-block">{{ trans('cruds.setting.fields.youtubte_helper') }}</span>
                 </div>
                 <div class="form-group">
+                    <label for="system_link">{{ trans('cruds.setting.fields.system_link') }}</label>
+                    <input class="form-control {{ $errors->has('system_link') ? 'is-invalid' : '' }}" type="text"
+                        name="system_link" id="system_link" value="{{ old('system_link', $setting->system_link) }}">
+                    @if ($errors->has('system_link'))
+                        <div class="invalid-feedback">
+                            {{ $errors->first('system_link') }}
+                        </div>
+                    @endif
+                    <span class="help-block">{{ trans('cruds.setting.fields.system_link_helper') }}</span>
+                </div>
+                <div class="form-group">
                     <label for="about_description">{{ trans('cruds.setting.fields.about_description') }}</label>
                     <textarea class="form-control {{ $errors->has('about_description') ? 'is-invalid' : '' }}" name="about_description"
                         id="about_description">{{ old('about_description', $setting->about_description) }}</textarea>

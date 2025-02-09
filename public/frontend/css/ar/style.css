@@ -2968,3 +2968,76 @@ p {
     }
 
 }
+
+
+.hidden-layer {
+    position: fixed;
+    top: 100px;
+    right: -300px;
+    /* Hidden by default */
+    width: 300px;
+    height: 150px;
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease-in-out;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.hidden-layer.active {
+    right: 0;
+}
+
+.toggle-button {
+    position: fixed;
+    top: 150px;
+    right: 0;
+    /* Default position when layer is closed */
+    padding: 10px 20px;
+    background-color: #1b396b;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: right 0.3s ease-in-out, transform 0.3s ease-in-out;
+    z-index: 999;
+    transform: rotate(-90deg);
+    /* Rotate the button vertically */
+    right: -40px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.toggle-button:hover {
+    background-color: #000;
+}
+
+.hidden-layer.active+.toggle-button {
+    right: 320px;
+    /* Move the button when the layer is open */
+}
+
+.hidden-layer li {
+    list-style: none;
+    font-size: 16px;
+    line-height: 40px;
+    border-bottom: dotted thin #c6c6c6;
+    transition-timing-function: ease-in-out;
+    padding-right: 20px;
+}
+
+.hidden-layer li:hover a {
+    color: #fff;
+}
+
+.hidden-layer li:last-child {
+    border-bottom: none;
+}
+
+.hidden-layer li:hover {
+    background: #000;
+    color: #fff;
+}

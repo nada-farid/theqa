@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{app()->getLocale()}}">
 
 <head>
     <meta charset="UTF-8" />
@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/' . app()->getLocale() . '/style.css') }}" />
 
 
-    <title>{{$setting->site_name}}</title>
+    <title>{{ $setting->site_name }}</title>
 
     <link href="{{ asset('frontend/css/model.css') }}" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -36,12 +36,14 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/' . app()->getLocale() . '/ozmenu.css') }}" />
 
     <script>
-        window.console = window.console || function (t) { };
+        window.console = window.console || function(t) {};
     </script>
 
 
     <!----------test-------->
-    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+    <script
+        src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js">
+    </script>
     <!----------test-------->
     <style>
         .fixedContact {
@@ -56,9 +58,10 @@
             bottom: 10px;
             right: 10px;
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-            line-height:8px;
+            line-height: 8px;
         }
-        .fixedContact a{
+
+        .fixedContact a {
             color: #fff;
         }
     </style>
@@ -163,21 +166,25 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="item"><a href="{{ route('frontend.projects') }}">{{ trans('front.Projects') }}</a></li>
+                    <li class="item"><a href="{{ route('frontend.projects') }}">{{ trans('front.Projects') }}</a>
+                    </li>
                     <li class="item"><a href="{{ route('frontend.about') }}">{{ trans('front.AboutUs') }}</a></li>
-                  
 
 
-                  
+
+
                     <li class="item"><a href="{{ route('frontend.news') }}">{{ trans('front.News') }}</a></li>
-                  
+
 
                     <li class="item dropdownitem">
                         <a href="#" class="nav-dropdown">{{ trans('front.Career') }}</a>
                         <div class="dropdown">
                             <ul>
-                                <li class="item"><a href="{{ route('frontend.jobs') }}">{{ trans('front.jobs') }}</a></li>
-                                <li class="item"><a href="{{ route('frontend.career') }}">{{ trans('front.application') }}</a></li>
+                                <li class="item"><a
+                                        href="{{ route('frontend.jobs') }}">{{ trans('front.jobs') }}</a></li>
+                                <li class="item"><a
+                                        href="{{ route('frontend.career') }}">{{ trans('front.application') }}</a>
+                                </li>
                             </ul>
                         </div>
                     </li>
@@ -199,42 +206,42 @@
                     <div class="footer-items row g-2 d-flex align-items-center justify-content-center">
                         <div class="col-md-2 col-2">
                             <div class="f-icon">
-                                <a href="{{$setting->facebook}}"> <i class="fa-brands fa-facebook"></i></a>
+                                <a href="{{ $setting->facebook }}"> <i class="fa-brands fa-facebook"></i></a>
                             </div>
                         </div>
 
                         <div class="col-md-2 col-2">
                             <div class="f-icon">
-                                <a href="{{$setting->youtubte}}">
+                                <a href="{{ $setting->youtubte }}">
                                     <i class="fa-brands fa-youtube"></i>
                                 </a>
                             </div>
                         </div>
-    
+
                         <div class="col-md-2 col-2">
                             <div class="f-icon">
-                                <a href="{{$setting->twitter}}">
+                                <a href="{{ $setting->twitter }}">
                                     <i class="fa-brands fa-twitter"></i>
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-2 col-2">
                             <div class="f-icon">
-                                <a href="{{$setting->whatsapp}}">
+                                <a href="{{ $setting->whatsapp }}">
                                     <i class="fa-brands fa-whatsapp"></i>
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-2 col-2">
                             <div class="f-icon">
-                                <a href="{{$setting->snapchat}}">
+                                <a href="{{ $setting->snapchat }}">
                                     <i class="fa-brands fa-snapchat"></i>
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-2 col-2">
                             <div class="f-icon">
-                                <a href="{{$setting->linkedin}}">
+                                <a href="{{ $setting->linkedin }}">
                                     <i class="fa-brands fa-linkedin"></i>
                                 </a>
                             </div>
@@ -242,15 +249,40 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="text-center my-3">
                 <p class="text-white">
-                    {{trans('front.CopyRight')}}
+                    {{ trans('front.CopyRight') }}
                 </p>
             </div>
         </div>
     </footer>
-    <div class="fixedContact" ><a href="{{ route('frontend.contact') }}"><i class="fa-solid fa-headset"></i></a></div>
+    <div class="fixedContact"><a href="{{ route('frontend.contact') }}"><i class="fa-solid fa-headset"></i></a>
+    </div>
+
+    <button class="toggle-button" id="toggleButton" onclick="toggleLayer()">{{ trans('front.CustomerArea') }}
+    </button>
+
+    <div class="hidden-layer" id="hiddenLayer">
+        <li> <a href="{{$setting->system_link}}"> {{ trans('front.CustomerLogin') }}</a></li>
+        <li> <a href="{{route('admin.home')}}"> {{ trans('front.ManagementLogin') }}</a></li>
+
+    </div>
+
+    <script>
+        function toggleLayer() {
+            const layer = document.getElementById('hiddenLayer');
+            const button = document.getElementById('toggleButton');
+            layer.classList.toggle('active');
+            button.textContent = layer.classList.contains('active') ? "{{ trans('front.CloseLogin') }}" :
+                "{{ trans('front.CustomerArea') }}";
+
+            // Move button when layer opens or closes
+            const isArabic = document.documentElement.lang === 'ar';
+            button.style[isArabic ? 'right' : 'left'] = layer.classList.contains('active') ? '260px' : '-40px';
+
+        }
+    </script>
     @include('sweetalert::alert')
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script> -->

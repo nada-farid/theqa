@@ -6,273 +6,573 @@
 
     <title>#</title>
 
-
-
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-            color: #1a1f36;
-            box-sizing: border-box;
-            word-wrap: break-word;
-            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Ubuntu, sans-serif;
-        }
-
-        body {
-            min-height: 100%;
-            background-color: #ffffff;
-        }
-
-        h1 {
-            letter-spacing: -1px;
-        }
-
-        a {
-            color: #5469d4;
-            text-decoration: unset;
-        }
-
-        .login-root {
-            background: #fff;
-            display: flex;
-            width: 100%;
-            min-height: 100vh;
-            overflow: hidden;
-        }
-
-        .loginbackground {
-            min-height: 692px;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            top: 0;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        .flex-flex {
-            display: flex;
-        }
-
-        .align-center {
-            align-items: center;
-        }
-
-        .center-center {
-            align-items: center;
-            justify-content: center;
-        }
-
-        .box-root {
-            box-sizing: border-box;
-        }
-
-        .flex-direction--column {
-            -ms-flex-direction: column;
-            flex-direction: column;
-        }
-
-        .loginbackground-gridContainer {
-            display: -ms-grid;
-            display: grid;
-            -ms-grid-columns: [start] 1fr [left-gutter] (86.6px)[16] [left-gutter] 1fr [end];
-            grid-template-columns: [start] 1fr [left-gutter] repeat(16, 86.6px) [left-gutter] 1fr [end];
-            -ms-grid-rows: [top] 1fr [top-gutter] (64px)[8] [bottom-gutter] 1fr [bottom];
-            grid-template-rows: [top] 1fr [top-gutter] repeat(8, 64px) [bottom-gutter] 1fr [bottom];
-            justify-content: center;
-            margin: 0 -2%;
-            transform: rotate(-12deg) skew(-12deg);
-        }
-
-        .box-divider--light-all-2 {
-            box-shadow: inset 0 0 0 2px #e3e8ee;
-        }
-
-        .box-background--blue {
-            background-color: #1b396b;
-        }
-
-        .box-background--white {
-            background-color: #ffffff;
-        }
-
-        .box-background--blue800 {
-            background-color: #212d63;
-        }
-
-        .box-background--gray100 {
-            background-color: #e3e8ee;
-        }
-
-        .box-background--cyan200 {
-            background-color: #7fd3ed;
-        }
-
-        .padding-top--64 {
-            padding-top: 64px;
-        }
-
-        .padding-top--24 {
-            padding-top: 24px;
-        }
-
-        .padding-top--48 {
-            padding-top: 48px;
-        }
-
-        .padding-bottom--24 {
-            padding-bottom: 24px;
-        }
-
-        .padding-horizontal--48 {
-            padding: 48px;
-        }
-
-        .padding-bottom--15 {
-            padding-bottom: 15px;
-        }
-
-
-        .flex-justifyContent--center {
-            -ms-flex-pack: center;
-            justify-content: center;
-        }
-
-        .formbg {
-            margin: 0px auto;
-            width: 100%;
-            max-width: 448px;
-            background: white;
-            border-radius: 4px;
-            box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px, rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
-        }
-
-        span {
-            display: block;
-            font-size: 20px;
-            line-height: 28px;
-            color: #1a1f36;
-        }
-
-        label {
-            margin-bottom: 10px;
-        }
-
-        .reset-pass a,
-        label {
-            font-size: 14px;
-            font-weight: 600;
-            display: block;
-        }
-
-        .reset-pass>a {
-            text-align: right;
-            margin-bottom: 10px;
-        }
-
-        .grid--50-50 {
-            display: grid;
-            grid-template-columns: 50% 50%;
-            align-items: center;
-        }
-
-        .field input {
-            font-size: 16px;
-            line-height: 28px;
-            padding: 8px 16px;
-            width: 100%;
-            min-height: 44px;
-            border: unset;
-            border-radius: 4px;
-            outline-color: rgb(84 105 212 / 0.5);
-            background-color: rgb(255, 255, 255);
-            box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.16) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px;
-        }
-
-        input[type="submit"] {
-            background-color: #1b396b;
-            box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, rgb(84, 105, 212) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.08) 0px 2px 5px 0px;
-            color: #fff;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        .field-checkbox input {
-            width: 20px;
-            height: 15px;
-            margin-right: 5px;
-            box-shadow: unset;
-            min-height: unset;
-        }
-
-        .field-checkbox label {
-            display: flex;
-            align-items: center;
-            margin: 0;
-        }
-
-        a.ssolink {
-            display: block;
-            text-align: center;
-            font-weight: 600;
-        }
-
-        .footer-link span {
-            font-size: 14px;
-            text-align: center;
-        }
-
-        .listing a {
-            color: #697386;
-            font-weight: 600;
-            margin: 0 10px;
-        }
-
-        .animationRightLeft {
-            animation: animationRightLeft 2s ease-in-out infinite;
-        }
-
-        .animationLeftRight {
-            animation: animationLeftRight 2s ease-in-out infinite;
-        }
-
-        .tans3s {
-            animation: animationLeftRight 3s ease-in-out infinite;
-        }
-
-        .tans4s {
-            animation: animationLeftRight 4s ease-in-out infinite;
-        }
-
-        @keyframes animationLeftRight {
-            0% {
-                transform: translateX(0px);
+    @if (app()->getLocale() == 'en')
+        <style>
+            .lang {
+                position: absolute;
+                left: 50px;
+                top: 20px;
+                background: #1a1f36;
+                color: #fff;
+                border-radius: 20px;
+                padding: 10px 20px;
             }
 
-            50% {
-                transform: translateX(1000px);
+            .lang .fa {
+                color: #fff;
             }
 
-            100% {
-                transform: translateX(0px);
-            }
-        }
-
-        @keyframes animationRightLeft {
-            0% {
-                transform: translateX(0px);
-            }
-
-            50% {
-                transform: translateX(-1000px);
+            * {
+                padding: 0;
+                margin: 0;
+                color: #1a1f36;
+                box-sizing: border-box;
+                word-wrap: break-word;
+                font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Ubuntu, sans-serif;
             }
 
-            100% {
-                transform: translateX(0px);
+            body {
+                min-height: 100%;
+                background-color: #ffffff;
             }
-        }
-    </style>
+
+            h1 {
+                letter-spacing: -1px;
+            }
+
+            a {
+                color: #5469d4;
+                text-decoration: unset;
+            }
+
+            .login-root {
+                background: #fff;
+                display: flex;
+                width: 100%;
+                min-height: 100vh;
+                overflow: hidden;
+            }
+
+            .loginbackground {
+                min-height: 692px;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                top: 0;
+                z-index: 0;
+                overflow: hidden;
+            }
+
+            .flex-flex {
+                display: flex;
+            }
+
+            .align-center {
+                align-items: center;
+            }
+
+            .center-center {
+                align-items: center;
+                justify-content: center;
+            }
+
+            .box-root {
+                box-sizing: border-box;
+            }
+
+            .flex-direction--column {
+                -ms-flex-direction: column;
+                flex-direction: column;
+            }
+
+            .loginbackground-gridContainer {
+                display: -ms-grid;
+                display: grid;
+                -ms-grid-columns: [start] 1fr [left-gutter] (86.6px)[16] [left-gutter] 1fr [end];
+                grid-template-columns: [start] 1fr [left-gutter] repeat(16, 86.6px) [left-gutter] 1fr [end];
+                -ms-grid-rows: [top] 1fr [top-gutter] (64px)[8] [bottom-gutter] 1fr [bottom];
+                grid-template-rows: [top] 1fr [top-gutter] repeat(8, 64px) [bottom-gutter] 1fr [bottom];
+                justify-content: center;
+                margin: 0 -2%;
+                transform: rotate(-12deg) skew(-12deg);
+            }
+
+            .box-divider--light-all-2 {
+                box-shadow: inset 0 0 0 2px #e3e8ee;
+            }
+
+            .box-background--blue {
+                background-color: #1b396b;
+            }
+
+            .box-background--white {
+                background-color: #ffffff;
+            }
+
+            .box-background--blue800 {
+                background-color: #212d63;
+            }
+
+            .box-background--gray100 {
+                background-color: #e3e8ee;
+            }
+
+            .box-background--cyan200 {
+                background-color: #7fd3ed;
+            }
+
+            .padding-top--64 {
+                padding-top: 64px;
+            }
+
+            .padding-top--24 {
+                padding-top: 24px;
+            }
+
+            .padding-top--48 {
+                padding-top: 48px;
+            }
+
+            .padding-bottom--24 {
+                padding-bottom: 24px;
+            }
+
+            .padding-horizontal--48 {
+                padding: 48px;
+            }
+
+            .padding-bottom--15 {
+                padding-bottom: 15px;
+            }
+
+
+            .flex-justifyContent--center {
+                -ms-flex-pack: center;
+                justify-content: center;
+            }
+
+            .formbg {
+                margin: 0px auto;
+                width: 100%;
+                max-width: 448px;
+                background: white;
+                border-radius: 4px;
+                box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px, rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
+            }
+
+            span {
+                display: block;
+                font-size: 20px;
+                line-height: 28px;
+                color: #1a1f36;
+            }
+
+            label {
+                margin-bottom: 10px;
+            }
+
+            .reset-pass a,
+            label {
+                font-size: 14px;
+                font-weight: 600;
+                display: block;
+            }
+
+            .reset-pass>a {
+                text-align: right;
+                margin-bottom: 10px;
+            }
+
+            .grid--50-50 {
+                display: grid;
+                grid-template-columns: 50% 50%;
+                align-items: center;
+            }
+
+            .field input {
+                font-size: 16px;
+                line-height: 28px;
+                padding: 8px 16px;
+                width: 100%;
+                min-height: 44px;
+                border: unset;
+                border-radius: 4px;
+                outline-color: rgb(84 105 212 / 0.5);
+                background-color: rgb(255, 255, 255);
+                box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.16) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+            }
+
+            input[type="submit"] {
+                background-color: #1b396b;
+                box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, rgb(84, 105, 212) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.08) 0px 2px 5px 0px;
+                color: #fff;
+                font-weight: 600;
+                cursor: pointer;
+            }
+
+            .field-checkbox input {
+                width: 20px;
+                height: 15px;
+                margin-right: 5px;
+                box-shadow: unset;
+                min-height: unset;
+            }
+
+            .field-checkbox label {
+                display: flex;
+                align-items: center;
+                margin: 0;
+            }
+
+            a.ssolink {
+                display: block;
+                text-align: center;
+                font-weight: 600;
+            }
+
+            .footer-link span {
+                font-size: 14px;
+                text-align: center;
+            }
+
+            .listing a {
+                color: #697386;
+                font-weight: 600;
+                margin: 0 10px;
+            }
+
+            .animationRightLeft {
+                animation: animationRightLeft 2s ease-in-out infinite;
+            }
+
+            .animationLeftRight {
+                animation: animationLeftRight 2s ease-in-out infinite;
+            }
+
+            .tans3s {
+                animation: animationLeftRight 3s ease-in-out infinite;
+            }
+
+            .tans4s {
+                animation: animationLeftRight 4s ease-in-out infinite;
+            }
+
+            @keyframes animationLeftRight {
+                0% {
+                    transform: translateX(0px);
+                }
+
+                50% {
+                    transform: translateX(1000px);
+                }
+
+                100% {
+                    transform: translateX(0px);
+                }
+            }
+
+            @keyframes animationRightLeft {
+                0% {
+                    transform: translateX(0px);
+                }
+
+                50% {
+                    transform: translateX(-1000px);
+                }
+
+                100% {
+                    transform: translateX(0px);
+                }
+            }
+        </style>
+    @else
+        <style>
+            body {
+                font-family: "Cairo", serif;
+                overflow-x: hidden;
+                direction: rtl;
+            }
+
+            .lang {
+                position: absolute;
+                left: 50px;
+                top: 20px;
+                background: #1a1f36;
+                color: #fff;
+                border-radius: 20px;
+                padding: 10px 20px;
+            }
+
+            .lang .fa {
+                color: #fff;
+            }
+
+            * {
+                padding: 0;
+                margin: 0;
+                color: #1a1f36;
+                box-sizing: border-box;
+                word-wrap: break-word;
+            }
+
+            body {
+                min-height: 100%;
+                background-color: #ffffff;
+            }
+
+            h1 {
+                letter-spacing: -1px;
+            }
+
+            a {
+                color: #5469d4;
+                text-decoration: unset;
+            }
+
+            .login-root {
+                background: #fff;
+                display: flex;
+                width: 100%;
+                min-height: 100vh;
+                overflow: hidden;
+            }
+
+            .loginbackground {
+                min-height: 692px;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                top: 0;
+                z-index: 0;
+                overflow: hidden;
+            }
+
+            .flex-flex {
+                display: flex;
+            }
+
+            .align-center {
+                align-items: center;
+            }
+
+            .center-center {
+                align-items: center;
+                justify-content: center;
+            }
+
+            .box-root {
+                box-sizing: border-box;
+            }
+
+            .flex-direction--column {
+                -ms-flex-direction: column;
+                flex-direction: column;
+            }
+
+            .loginbackground-gridContainer {
+                display: -ms-grid;
+                display: grid;
+                -ms-grid-columns: [start] 1fr [left-gutter] (86.6px)[16] [left-gutter] 1fr [end];
+                grid-template-columns: [start] 1fr [left-gutter] repeat(16, 86.6px) [left-gutter] 1fr [end];
+                -ms-grid-rows: [top] 1fr [top-gutter] (64px)[8] [bottom-gutter] 1fr [bottom];
+                grid-template-rows: [top] 1fr [top-gutter] repeat(8, 64px) [bottom-gutter] 1fr [bottom];
+                justify-content: center;
+                margin: 0 -2%;
+                transform: rotate(-12deg) skew(-12deg);
+            }
+
+            .box-divider--light-all-2 {
+                box-shadow: inset 0 0 0 2px #e3e8ee;
+            }
+
+            .box-background--blue {
+                background-color: #1b396b;
+            }
+
+            .box-background--white {
+                background-color: #ffffff;
+            }
+
+            .box-background--blue800 {
+                background-color: #212d63;
+            }
+
+            .box-background--gray100 {
+                background-color: #e3e8ee;
+            }
+
+            .box-background--cyan200 {
+                background-color: #7fd3ed;
+            }
+
+            .padding-top--64 {
+                padding-top: 64px;
+            }
+
+            .padding-top--24 {
+                padding-top: 24px;
+            }
+
+            .padding-top--48 {
+                padding-top: 48px;
+            }
+
+            .padding-bottom--24 {
+                padding-bottom: 24px;
+            }
+
+            .padding-horizontal--48 {
+                padding: 48px;
+            }
+
+            .padding-bottom--15 {
+                padding-bottom: 15px;
+            }
+
+
+            .flex-justifyContent--center {
+                -ms-flex-pack: center;
+                justify-content: center;
+            }
+
+            .formbg {
+                margin: 0px auto;
+                width: 100%;
+                max-width: 448px;
+                background: white;
+                border-radius: 4px;
+                box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px, rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
+            }
+
+            span {
+                display: block;
+                font-size: 20px;
+                line-height: 28px;
+                color: #1a1f36;
+            }
+
+            label {
+                margin-bottom: 10px;
+            }
+
+            .reset-pass a,
+            label {
+                font-size: 14px;
+                font-weight: 600;
+                display: block;
+            }
+
+            .reset-pass>a {
+                text-align: left;
+                margin-bottom: 10px;
+            }
+
+            .grid--50-50 {
+                display: grid;
+                grid-template-columns: 50% 50%;
+                align-items: center;
+            }
+
+            .field input {
+                font-size: 16px;
+                line-height: 28px;
+                padding: 8px 16px;
+                width: 100%;
+                min-height: 44px;
+                border: unset;
+                border-radius: 4px;
+                outline-color: rgb(84 105 212 / 0.5);
+                background-color: rgb(255, 255, 255);
+                box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.16) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+            }
+
+            input[type="submit"] {
+                background-color: #1b396b;
+                box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, rgb(84, 105, 212) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.08) 0px 2px 5px 0px;
+                color: #fff;
+                font-weight: 600;
+                cursor: pointer;
+                font-family: "Cairo", serif;
+            }
+
+            .field-checkbox input {
+                width: 20px;
+                height: 15px;
+                margin-left: 5px;
+                box-shadow: unset;
+                min-height: unset;
+            }
+
+            .field-checkbox label {
+                display: flex;
+                align-items: center;
+                margin: 0;
+            }
+
+            a.ssolink {
+                display: block;
+                text-align: center;
+                font-weight: 600;
+            }
+
+            .footer-link span {
+                font-size: 14px;
+                text-align: center;
+            }
+
+            .listing a {
+                color: #697386;
+                font-weight: 600;
+                margin: 0 10px;
+            }
+
+            .animationRightLeft {
+                animation: animationRightLeft 2s ease-in-out infinite;
+            }
+
+            .animationLeftRight {
+                animation: animationLeftRight 2s ease-in-out infinite;
+            }
+
+            .tans3s {
+                animation: animationLeftRight 3s ease-in-out infinite;
+            }
+
+            .tans4s {
+                animation: animationLeftRight 4s ease-in-out infinite;
+            }
+
+            @keyframes animationLeftRight {
+                0% {
+                    transform: translateX(0px);
+                }
+
+                50% {
+                    transform: translateX(1000px);
+                }
+
+                100% {
+                    transform: translateX(0px);
+                }
+            }
+
+            @keyframes animationRightLeft {
+                0% {
+                    transform: translateX(0px);
+                }
+
+                50% {
+                    transform: translateX(-1000px);
+                }
+
+                100% {
+                    transform: translateX(0px);
+                }
+            }
+        </style>
+    @endif
 
     <script>
         window.console = window.console || function(t) {};
@@ -331,19 +631,29 @@
                         </div>
                     </div>
                 </div>
+                @php
+                    $language = session('language', config('app.locale')) === 'ar' ? 'en' : 'ar';
+                @endphp
+                <div class="lang btn" style="z-index: 20">
+                    <a href="{{ route('change.language', $language) }}">
+                        <i class="fa fa-globe" aria-hidden="true"></i>
+
+                        <span style="color: white">{{ strtoupper($language) }}</span></a>
+                </div>
                 <div class="box-root padding-top--24 flex-flex flex-direction--column"
                     style="flex-grow: 1; z-index: 9;">
                     <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
-                        <h1><a href="{{route('frontend.home')}}" rel="dofollow"><img src="{{asset('frontend/assets/images/logo-s.png')}}" /></a></h1>
+                        <h1><a href="{{ route('frontend.home') }}" rel="dofollow"><img
+                                    src="{{ asset('frontend/assets/images/logo-s.png') }}" /></a></h1>
                     </div>
                     <div class="formbg-outer">
                         <div class="formbg">
                             <div class="formbg-inner padding-horizontal--48">
-                                <span class="padding-bottom--15">Sign in to your account</span>
+                                <span class="padding-bottom--15">{{ trans('front.SignInToYourAccount') }}</span>
                                 <form method="POST" action="{{ route('login') }}" id="stripe-login">
                                     @csrf
                                     <div class="field padding-bottom--24">
-                                        <label for="email">Email</label>
+                                        <label for="email">{{ trans('front.Email') }}</label>
                                         <input type="email" name="email" id="email" name="email"
                                             type="text"
                                             class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
@@ -359,10 +669,10 @@
                                     </div>
                                     <div class="field padding-bottom--24">
                                         <div class="grid--50-50">
-                                            <label for="password">Password</label>
-                                            <div class="reset-pass">
+                                            <label for="password">{{ trans('front.Password') }}</label>
+                                            {{-- <div class="reset-pass">
                                                 <a href="#">Forgot your password?</a>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                         <input type="password" name="password" id="password" name="password"
                                             type="password"
@@ -375,13 +685,13 @@
                                             </div>
                                         @endif
                                     </div>
-                                    <div class="field field-checkbox padding-bottom--24 flex-flex align-center">
+                                    {{-- <div class="field field-checkbox padding-bottom--24 flex-flex align-center">
                                         <label for="checkbox">
                                             <input type="checkbox" name="checkbox"> Remmber me
                                         </label>
-                                    </div>
+                                    </div> --}}
                                     <div class="field padding-bottom--24">
-                                        <input type="submit" name="submit" value="Continue">
+                                        <input type="submit" name="submit" value="{{ trans('front.Countinue') }}">
                                     </div>
 
                                 </form>
