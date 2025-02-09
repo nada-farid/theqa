@@ -149,6 +149,10 @@ return [
             'home_section_2_helper'       => ' ',
             'white_logo'                  =>'White Logo',
             'white_logo_helper'           =>'(Suitable image size width:296px - height:182px)',
+            'whatsapp'                    => 'whatsapp',
+            'whatsapp_helper'             => ' ',
+            'snapchat'                    => 'snapchat',
+            'snapchat_helper'             => ' ',
         ],
     ],
     'slider' => [
@@ -376,6 +380,25 @@ return [
             'updated_at_helper' => ' ',
             'deleted_at'        => 'Deleted at',
             'deleted_at_helper' => ' ',
+        ],
+    ],
+
+    'job' => [
+        'title'          => 'Jobs',
+        'title_singular' => 'Job',
+        'fields'         => [
+            'id'                 => 'ID',
+            'id_helper'          => ' ',
+            'title'              => 'Title',
+            'title_helper'       => ' ',
+            'description'        => 'Description',
+            'description_helper' => ' ',
+            'created_at'         => 'Created at',
+            'created_at_helper'  => ' ',
+            'updated_at'         => 'Updated at',
+            'updated_at_helper'  => ' ',
+            'deleted_at'         => 'Deleted at',
+            'deleted_at_helper'  => ' ',
         ],
     ],
 

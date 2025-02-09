@@ -56,7 +56,7 @@
                         </div>
                     @endif
                 </div>
-                <div class="form-group">
+                {{-- <div class="form-group">
                     <input type="text" class="form-control {{ $errors->has('website') ? 'is-invalid' : '' }}"
                         id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="{{ trans('front.Website') }}" value="{{ old('website') }}">
                     @if ($errors->has('website'))
@@ -64,7 +64,7 @@
                             {{ $errors->first('website') }}
                         </div>
                     @endif
-                </div>
+                </div> --}}
                 <div class="form-group mb-2">
                     <textarea class="form-control  {{ $errors->has('message') ? 'is-invalid' : '' }}" name="message"
                         placeholder="{{ trans('front.TypeYourMessage') }}...." tabindex="5" required autofocus >{{ old('message') }}</textarea>
@@ -112,7 +112,7 @@
 
     <!-- ////////////////////////manager massage//////////////////// -->
 
-    <section class="g-massage bg-white">
+    {{-- <section class="g-massage bg-white">
         <div class="massage-content raw-container py-5">
             <div class="row main-message ">
                 <div class="col-md-1"></div>
@@ -150,7 +150,7 @@
                 <div class="col-md-1"></div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- //////////////////////////////// -->
     <!-- //////////////////team////////////////////////// -->
 

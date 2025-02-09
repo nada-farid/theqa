@@ -87,6 +87,28 @@
                     <span class="help-block">{{ trans('cruds.setting.fields.linkedin_helper') }}</span>
                 </div>
                 <div class="form-group">
+                    <label for="whatsapp">{{ trans('cruds.setting.fields.whatsapp') }}</label>
+                    <input class="form-control {{ $errors->has('whatsapp') ? 'is-invalid' : '' }}" type="text"
+                        name="whatsapp" id="whatsapp" value="{{ old('whatsapp', $setting->whatsapp) }}">
+                    @if ($errors->has('whatsapp'))
+                        <div class="invalid-feedback">
+                            {{ $errors->first('whatsapp') }}
+                        </div>
+                    @endif
+                    <span class="help-block">{{ trans('cruds.setting.fields.whatsapp_helper') }}</span>
+                </div>
+                <div class="form-group">
+                    <label for="snapchat">{{ trans('cruds.setting.fields.snapchat') }}</label>
+                    <input class="form-control {{ $errors->has('snapchat') ? 'is-invalid' : '' }}" type="text"
+                        name="snapchat" id="snapchat" value="{{ old('snapchat', $setting->snapchat) }}">
+                    @if ($errors->has('snapchat'))
+                        <div class="invalid-feedback">
+                            {{ $errors->first('snapchat') }}
+                        </div>
+                    @endif
+                    <span class="help-block">{{ trans('cruds.setting.fields.snapchat_helper') }}</span>
+                </div>
+                <div class="form-group">
                     <label for="youtubte">{{ trans('cruds.setting.fields.youtubte') }}</label>
                     <input class="form-control {{ $errors->has('youtubte') ? 'is-invalid' : '' }}" type="text"
                         name="youtubte" id="youtubte" value="{{ old('youtubte', $setting->youtubte) }}">

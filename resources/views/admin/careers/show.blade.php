@@ -8,6 +8,11 @@
 
     <div class="card-body">
         <div class="form-group">
+            <div class="form-group">
+                <a class="btn btn-default" href="{{ route('admin.careers.index') }}">
+                    {{ trans('global.back_to_list') }}
+                </a>
+            </div>
             <table class="table table-bordered table-striped">
                 <tbody>
                     <tr>
@@ -52,14 +57,6 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.career.fields.job') }}
-                        </th>
-                        <td>
-                            {{ $career->job }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.career.fields.cv') }}
                         </th>
                         <td>
@@ -68,6 +65,14 @@
                                     {{ trans('global.view_file') }}
                                 </a>
                             @endif
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.career.fields.job') }}
+                        </th>
+                        <td>
+                            {{ $career->job->title ?? '' }}
                         </td>
                     </tr>
                 </tbody>

@@ -29,6 +29,13 @@
                                 <p class="description">{!! $setting->vision_text !!}</p>
                             </div>
                             <div class="tab">
+                                <button class="tab-toggle">{{trans('front.MessageFromEM')}}</button>
+                            </div>
+                            <div class="content">
+                                <h3 class="heading">{{trans('front.MessageFromEM')}}</h3>
+                                <p class="description">{!! $setting->chairman_description !!}</p>
+                            </div>
+                            <div class="tab">
                                 <button class="tab-toggle"> {{trans('front.OurMission')}}</button>
                             </div>
                             <div class="content">

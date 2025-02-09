@@ -159,6 +159,16 @@
                 </a>
             </li>
         @endcan
+        @can('job_access')
+        <li class="c-sidebar-nav-item">
+            <a href="{{ route("admin.jobs.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/jobs") || request()->is("admin/jobs/*") ? "c-active" : "" }}">
+                <i class="fa-fw fas fa-user-md c-sidebar-nav-icon">
+
+                </i>
+                {{ trans('cruds.job.title') }}
+            </a>
+        </li>
+    @endcan
         @can('team_access')
             <li class="c-sidebar-nav-item">
                 <a href="{{ route("admin.teams.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/teams") || request()->is("admin/teams/*") ? "c-active" : "" }}">

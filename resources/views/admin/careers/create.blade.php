@@ -50,16 +50,6 @@
                 <span class="help-block">{{ trans('cruds.career.fields.phone_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="job">{{ trans('cruds.career.fields.job') }}</label>
-                <input class="form-control {{ $errors->has('job') ? 'is-invalid' : '' }}" type="text" name="job" id="job" value="{{ old('job', '') }}">
-                @if($errors->has('job'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('job') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.career.fields.job_helper') }}</span>
-            </div>
-            <div class="form-group">
                 <label class="required" for="cv">{{ trans('cruds.career.fields.cv') }}</label>
                 <div class="needsclick dropzone {{ $errors->has('cv') ? 'is-invalid' : '' }}" id="cv-dropzone">
                 </div>
@@ -69,6 +59,20 @@
                     </div>
                 @endif
                 <span class="help-block">{{ trans('cruds.career.fields.cv_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label class="required" for="job_id">{{ trans('cruds.career.fields.job') }}</label>
+                <select class="form-control select2 {{ $errors->has('job') ? 'is-invalid' : '' }}" name="job_id" id="job_id" required>
+                    @foreach($jobs as $id => $entry)
+                        <option value="{{ $id }}" {{ old('job_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('job'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('job') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.career.fields.job_helper') }}</span>
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">

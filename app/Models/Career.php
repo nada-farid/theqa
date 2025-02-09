@@ -30,7 +30,7 @@ class Career extends Model implements HasMedia
         'last_name',
         'email',
         'phone',
-        'job',
+        'job_id',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -50,5 +50,10 @@ class Career extends Model implements HasMedia
     public function getCvAttribute()
     {
         return $this->getMedia('cv')->last();
+    }
+
+    public function job()
+    {
+        return $this->belongsTo(Job::class, 'job_id');
     }
 }

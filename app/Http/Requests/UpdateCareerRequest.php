@@ -29,19 +29,25 @@ class UpdateCareerRequest extends FormRequest
                 'string',
                 'required',
             ],
-            'phone' => [
-                'nullable',
-                'integer',
-                'min:-2147483648',
-                'max:2147483647',
-            ],
-            'job' => [
-                'string',
-                'nullable',
-            ],
             'cv' => [
                 'required',
             ],
+            'job_id' => [
+                'required',
+                'integer',
+            ],
+            'phone' => [
+                'required',
+                'regex:/^05\d{8}$/',
+            ],
+            
         ];
     }
-}
+    
+    public function messages()
+    {
+        return [
+            'phone.regex' => 'رقم الجوال يجب ان يكون 10 أرقام ويبدأ ب 05',
+        ];
+    }
+    }

@@ -43,8 +43,26 @@
     <!----------test-------->
     <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
     <!----------test-------->
-
-
+    <style>
+        .fixedContact {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #1b396b;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            line-height:8px;
+        }
+        .fixedContact a{
+            color: #fff;
+        }
+    </style>
+    @yield('style')
 
 </head>
 
@@ -133,7 +151,6 @@
                 <div class="menu-close"><span class="close"></span></div>
                 <ul class="ozmenu-nav">
                     <li class="item"><a href="{{ route('frontend.home') }}">{{ trans('front.Home') }}</a></li>
-                    <li class="item"><a href="{{ route('frontend.about') }}">{{ trans('front.AboutUs') }}</a></li>
                     <li class="item dropdownitem">
                         <a href="#" class="nav-dropdown">{{ trans('front.Services') }}</a>
                         <div class="dropdown">
@@ -146,11 +163,24 @@
                             </ul>
                         </div>
                     </li>
-
-
                     <li class="item"><a href="{{ route('frontend.projects') }}">{{ trans('front.Projects') }}</a></li>
+                    <li class="item"><a href="{{ route('frontend.about') }}">{{ trans('front.AboutUs') }}</a></li>
+                  
+
+
+                  
                     <li class="item"><a href="{{ route('frontend.news') }}">{{ trans('front.News') }}</a></li>
-                    <li class="item"><a href="{{ route('frontend.career') }}">{{ trans('front.Career') }}</a></li>
+                  
+
+                    <li class="item dropdownitem">
+                        <a href="#" class="nav-dropdown">{{ trans('front.Career') }}</a>
+                        <div class="dropdown">
+                            <ul>
+                                <li class="item"><a href="{{ route('frontend.jobs') }}">{{ trans('front.jobs') }}</a></li>
+                                <li class="item"><a href="{{ route('frontend.career') }}">{{ trans('front.application') }}</a></li>
+                            </ul>
+                        </div>
+                    </li>
                     <li class="item"><a href="{{ route('frontend.contact') }}">{{ trans('front.Contact') }}</a></li>
                 </ul>
             </div>
@@ -195,6 +225,20 @@
                                 </a>
                             </div>
                         </div>
+                        <div class="col-md-2 col-2">
+                            <div class="f-icon">
+                                <a href="{{$setting->snapchat}}">
+                                    <i class="fa-brands fa-snapchat"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-2">
+                            <div class="f-icon">
+                                <a href="{{$setting->linkedin}}">
+                                    <i class="fa-brands fa-linkedin"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -206,6 +250,7 @@
             </div>
         </div>
     </footer>
+    <div class="fixedContact" ><a href="{{ route('frontend.contact') }}"><i class="fa-solid fa-headset"></i></a></div>
     @include('sweetalert::alert')
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script> -->

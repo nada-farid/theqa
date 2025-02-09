@@ -67,6 +67,7 @@ body.hide-scrolling {
         padding: 5px 0px;
         min-width: 220px;
         padding-top: 0px !important;
+        margin-left:-40px;
     }
     .ozmenu ul li.dropdownitem:hover > a{
         border-radius: 8px 8px 0px 0px !important;

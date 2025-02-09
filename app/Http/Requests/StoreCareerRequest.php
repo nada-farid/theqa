@@ -11,7 +11,7 @@ class StoreCareerRequest extends FormRequest
 {
     public function authorize()
     {
-        return true;
+        return Gate::allows('career_create');
     }
 
     public function rules()
@@ -28,26 +28,27 @@ class StoreCareerRequest extends FormRequest
             'email' => [
                 'string',
                 'required',
-                'email'
             ],
-            'phone' => [
-                'nullable',
-                'regex:/^05\d{8}$/',
-            ],
-            'job' => [
-                'string',
-                'nullable',
-            ],
+           
             'cv' => [
                 'required',
             ],
-        ];
-    }
+            'job_id' => [
+                'required',
+                'integer',
+            ],
+        'phone' => [
+            'required',
+            'regex:/^05\d{8}$/',
+        ],
+        
+    ];
+}
 
-    public function messages()
-    {
-        return [
-            'phone.regex' => 'رقم الجوال يجب ان يكون 10 أرقام ويبدأ ب 05',
-        ];
-    }
+public function messages()
+{
+    return [
+        'phone.regex' => 'رقم الجوال يجب ان يكون 10 أرقام ويبدأ ب 05',
+    ];
+}
 }

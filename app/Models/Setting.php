@@ -67,6 +67,8 @@ class Setting extends Model implements HasMedia
         'created_at',
         'updated_at',
         'deleted_at',
+        'whatsapp',
+        'snapchat'
     ];
 
     protected function serializeDate(DateTimeInterface $date)

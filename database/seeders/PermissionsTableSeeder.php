@@ -268,6 +268,26 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 65,
+                'title' => 'job_create',
+            ],
+            [
+                'id'    => 66,
+                'title' => 'job_edit',
+            ],
+            [
+                'id'    => 67,
+                'title' => 'job_show',
+            ],
+            [
+                'id'    => 68,
+                'title' => 'job_delete',
+            ],
+            [
+                'id'    => 69,
+                'title' => 'job_access',
+            ],
+            [
+                'id'    => 70,
                 'title' => 'profile_password_edit',
             ],
         ];

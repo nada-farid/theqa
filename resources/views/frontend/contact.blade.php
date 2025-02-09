@@ -59,6 +59,17 @@
 
                                 <li>
                                     <div class="contact-det">
+                                        <div class="icon"><i class="fa-brands fa-whatsapp"></i></div>
+                                        <div class="info">
+                                            <p class="title">{{ trans('front.WhatsApp') }}</p>
+                                            <p>{{ $setting->whatsapp }}</p>
+                                        </div>
+                                    </div>
+                                </li>
+
+
+                                <li>
+                                    <div class="contact-det">
                                         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
                                                 viewBox="0 -960 960 960" width="30px" fill="#fff">
                                                 <path
@@ -91,6 +102,12 @@
                                 @endif
                                 @if ($setting->whatsapp)
                                     <li><a href="{{ $setting->whatsapp }}"><i class="fa-brands fa-whatsapp"></i></a></li>
+                                @endif
+                                @if ($setting->snapchat)
+                                    <li><a href="{{ $setting->snapchat }}"><i class="fa-brands fa-snapchat"></i></a></li>
+                                @endif
+                                @if ($setting->linkedin)
+                                    <li><a href="{{ $setting->linkedin }}"><i class="fa-brands fa-linkedin"></i></a></li>
                                 @endif
                             </ul>
                         </div>
@@ -132,7 +149,7 @@
                                         </div>
                                     @endif
                                 </fieldset>
-                                <fieldset>
+                                {{-- <fieldset>
                                     <input class="{{ $errors->has('website') ? 'is-invalid' : '' }}"
                                         name="website"placeholder="{{ trans('front.Website') }}" id="website"
                                         type="url" tabindex="4" value="{{ old('website') }}">
@@ -141,7 +158,7 @@
                                             {{ $errors->first('website') }}
                                         </div>
                                     @endif
-                                </fieldset>
+                                </fieldset> --}}
                                 <fieldset>
                                     <textarea class="{{ $errors->has('message') ? 'is-invalid' : '' }}" name="message"
                                         placeholder="{{ trans('front.TypeYourMessage') }}...." tabindex="5" required autofocus>{{ old('message') }}</textarea>

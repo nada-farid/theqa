@@ -7,11 +7,13 @@ Route::group(['as' => 'frontend.'], function () {
     Route::get('/news', 'NewController@news')->name('news');
     Route::get('/new/{new}', 'NewController@new')->name('new');
     Route::get('/service/{service}', 'ServiceController@service')->name('service');
-    Route::get('/career', 'CareerController@career')->name('career');
+    Route::get('/career/{job_id?}', 'CareerController@career')->name('career');
     Route::post('/career/store', 'CareerController@store')->name('career.store');
+    Route::get('/jobs', 'CareerController@jobs')->name('jobs');
     Route::get('/contact', 'ContactUsController@contact')->name('contact');
     Route::post('/contact/store', 'ContactUsController@store')->name('contact.store');
     Route::get('/clear-cache', 'HomeController@cache');
+   
 
 
     

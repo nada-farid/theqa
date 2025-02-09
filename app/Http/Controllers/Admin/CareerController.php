@@ -8,6 +8,7 @@ use App\Http\Requests\MassDestroyCareerRequest;
 use App\Http\Requests\StoreCareerRequest;
 use App\Http\Requests\UpdateCareerRequest;
 use App\Models\Career;
+use App\Models\Job;
 use Gate;
 use Illuminate\Http\Request;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -23,7 +24,7 @@ class CareerController extends Controller
         abort_if(Gate::denies('career_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         if ($request->ajax()) {
-            $query = Career::query()->select(sprintf('%s.*', (new Career)->table));
+            $query = Career::with(['job'])->select(sprintf('%s.*', (new Career)->table));
             $table = Datatables::of($query);
 
             $table->addColumn('placeholder', '&nbsp;');
@@ -59,14 +60,14 @@ class CareerController extends Controller
             $table->editColumn('phone', function ($row) {
                 return $row->phone ? $row->phone : '';
             });
-            $table->editColumn('job', function ($row) {
-                return $row->job ? $row->job : '';
-            });
             $table->editColumn('cv', function ($row) {
                 return $row->cv ? '<a href="' . $row->cv->getUrl() . '" target="_blank">' . trans('global.downloadFile') . '</a>' : '';
             });
+            $table->addColumn('job_title', function ($row) {
+                return $row->job ? $row->job->title : '';
+            });
 
-            $table->rawColumns(['actions', 'placeholder', 'cv']);
+            $table->rawColumns(['actions', 'placeholder', 'cv', 'job']);
 
             return $table->make(true);
         }
@@ -78,9 +79,11 @@ class CareerController extends Controller
     {
         abort_if(Gate::denies('career_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.careers.create');
+        $jobs = Job::pluck('title', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        return view('admin.careers.create', compact('jobs'));
     }
-    
+
     public function store(StoreCareerRequest $request)
     {
         $career = Career::create($request->all());
@@ -100,7 +103,11 @@ class CareerController extends Controller
     {
         abort_if(Gate::denies('career_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.careers.edit', compact('career'));
+        $jobs = Job::pluck('title', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        $career->load('job');
+
+        return view('admin.careers.edit', compact('career', 'jobs'));
     }
 
     public function update(UpdateCareerRequest $request, Career $career)
@@ -124,6 +131,8 @@ class CareerController extends Controller
     public function show(Career $career)
     {
         abort_if(Gate::denies('career_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $career->load('job');
 
         return view('admin.careers.show', compact('career'));
     }

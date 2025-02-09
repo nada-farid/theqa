@@ -1,7 +1,10 @@
 @extends('frontend.layouts.main')
 
 @section('content')
-    @include('frontend.partials.breadcrumb', ['heading' => trans('front.Career'), 'heading2' => trans('front.Career')])
+    @include('frontend.partials.breadcrumb', [
+        'heading' => trans('front.Career'),
+        'heading2' => trans('front.Career'),
+    ])
 
     <!-- ////////////////////Career////////////////////// -->
 
@@ -16,11 +19,11 @@
                     <form id="contact" action="{{ route('frontend.career.store') }}" method="post"
                         enctype="multipart/form-data">
                         @csrf
-                        <h3> {{trans('front.JobApplication')}}</h3>
+                        <h3> {{ trans('front.JobApplication') }}</h3>
                         <div class="row">
                             <div class="col-6">
                                 <fieldset>
-                                    <input placeholder="{{trans('front.FirstName')}}"
+                                    <input placeholder="{{ trans('front.FirstName') }}"
                                         class="form-control {{ $errors->has('full_name') ? 'is-invalid' : '' }}"
                                         type="text" name="full_name" id="full_name" value="{{ old('full_name', '') }}"
                                         required>
@@ -36,7 +39,7 @@
                                     <input tabindex="3"
                                         class="form-control {{ $errors->has('last_name') ? 'is-invalid' : '' }}"
                                         type="text" name="last_name" id="last_name" value="{{ old('last_name', '') }}"
-                                        required placeholder="{{trans('front.LastName')}}">
+                                        required placeholder="{{ trans('front.LastName') }}">
                                     @if ($errors->has('last_name'))
                                         <div class="invalid-feedback">
                                             {{ $errors->first('last_name') }}
@@ -47,7 +50,7 @@
                         </div>
                         <fieldset>
                             <input tabindex="3" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}"
-                                placeholder="{{trans('front.Email')}}" type="text" name="email" id="email"
+                                placeholder="{{ trans('front.Email') }}" type="text" name="email" id="email"
                                 value="{{ old('email', '') }}" required>
                             @if ($errors->has('email'))
                                 <div class="invalid-feedback">
@@ -58,7 +61,7 @@
 
 
                         <fieldset>
-                            <input placeholder="{{trans('front.Phone')}}" tabindex="3"
+                            <input placeholder="{{ trans('front.Phone') }}" tabindex="3"
                                 class="form-control {{ $errors->has('phone') ? 'is-invalid' : '' }}" type="tel"
                                 name="phone" id="phone" value="{{ old('phone', '') }}">
                             @if ($errors->has('phone'))
@@ -67,35 +70,44 @@
                                 </div>
                             @endif
                         </fieldset>
-                        <fieldset>
-                    
+                        @if (!$job_id)
+                            <fieldset>
 
-                            <input placeholder="{{trans('front.JobTitle')}}"
-                                class="form-control {{ $errors->has('job') ? 'is-invalid' : '' }}" type="text"
-                                name="job" id="job" value="{{ old('job', '') }}">
-                            @if ($errors->has('job'))
-                                <div class="invalid-feedback">
-                                    {{ $errors->first('job') }}
-                                </div>
-                            @endif
-                        </fieldset>
+                                <select class="form-control {{ $errors->has('job') ? 'is-invalid' : '' }}" name="job_id"
+                                    id="job" value="{{ old('job', '') }}">
+                                    <option selected disabled value="0">{{ trans('front.PleaseSelect') }} </option>
+                                    @foreach ($jobs as $job)
+                                        <option value="{{ $job->id }}">{{ $job->title }}</option>
+                                    @endforeach
+                                </select>
+                                @if ($errors->has('job'))
+                                    <div class="invalid-feedback">
+                                        {{ $errors->first('job') }}
+                                    </div>
+                                @endif
+                            </fieldset>
+                        @else
+                            <input type="hidden" name="job_id" value="{{ $job_id }}" />
+                        @endif
 
 
 
                         <!-- Resume Upload -->
                         <fieldset>
-                            <label class="block mb-2" for="resume">{{trans('front.UploadResume')}}:</label>
-                            <input name="cv" type="file" id="cv"  class="p-2 border rounded  {{ $errors->has('cv') ? 'is-invalid' : '' }}">
+                            <label class="block mb-2" for="resume">{{ trans('front.UploadResume') }}:</label>
+                            <input name="cv" type="file" id="cv"
+                                class="p-2 border rounded  {{ $errors->has('cv') ? 'is-invalid' : '' }}">
                             @if ($errors->has('cv'))
-                            <div class="invalid-feedback">
-                                {{ $errors->first('cv') }}
-                            </div>
-                        @endif
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('cv') }}
+                                </div>
+                            @endif
                         </fieldset>
 
                         <fieldset>
-                            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">{{trans('front.SendNow')}}
-                                </button>
+                            <button name="submit" type="submit" id="contact-submit"
+                                data-submit="...Sending">{{ trans('front.SendNow') }}
+                            </button>
                         </fieldset>
                     </form>
                 </div>
@@ -110,7 +122,7 @@
     <!-- ///////////////////////////////////////// -->
 @endsection
 @section('scripts')
-       <script>
+    <script>
         const fileInput = document.getElementById('cv');
         const fileNameDisplay = document.getElementById('fileName');
 

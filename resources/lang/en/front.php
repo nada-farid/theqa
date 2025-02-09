@@ -37,6 +37,13 @@ return [
     'SavedSuccessfully' => 'Saved Successfully',
     'Success' => 'Completed Successfully',
     'ReadMore'=>'Read More',
-      'CopyRight'=>' Design with love © Tkamol 2024. All right reserved Theqa',
+    'CopyRight'=>' Design with love © Tkamol 2024. All right reserved Theqa',
+    'WhatsApp'=>'WhatsApp',
+    'jobs'=>'Avaliable Jobs',
+    'application'=>'Application',
+    'Address'=>'Address',
+    'MessageFromEM'=>'Message From EM',
+    'ApplyNow'=>'Apply Now',
+    'PleaseSelect'=>'Please Select',
 
 ];

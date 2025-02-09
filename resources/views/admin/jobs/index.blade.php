@@ -1,46 +1,34 @@
 @extends('layouts.admin')
 @section('content')
-@can('career_create')
+@can('job_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route('admin.careers.create') }}">
-                {{ trans('global.add') }} {{ trans('cruds.career.title_singular') }}
+            <a class="btn btn-success" href="{{ route('admin.jobs.create') }}">
+                {{ trans('global.add') }} {{ trans('cruds.job.title_singular') }}
             </a>
         </div>
     </div>
 @endcan
 <div class="card">
     <div class="card-header">
-        {{ trans('cruds.career.title_singular') }} {{ trans('global.list') }}
+        {{ trans('cruds.job.title_singular') }} {{ trans('global.list') }}
     </div>
 
     <div class="card-body">
-        <table class=" table table-bordered table-striped table-hover ajaxTable datatable datatable-Career">
+        <table class=" table table-bordered table-striped table-hover ajaxTable datatable datatable-Job">
             <thead>
                 <tr>
                     <th width="10">
 
                     </th>
                     <th>
-                        {{ trans('cruds.career.fields.id') }}
+                        {{ trans('cruds.job.fields.id') }}
                     </th>
                     <th>
-                        {{ trans('cruds.career.fields.full_name') }}
+                        {{ trans('cruds.job.fields.title') }}
                     </th>
                     <th>
-                        {{ trans('cruds.career.fields.last_name') }}
-                    </th>
-                    <th>
-                        {{ trans('cruds.career.fields.email') }}
-                    </th>
-                    <th>
-                        {{ trans('cruds.career.fields.phone') }}
-                    </th>
-                    <th>
-                        {{ trans('cruds.career.fields.cv') }}
-                    </th>
-                    <th>
-                        {{ trans('cruds.career.fields.job') }}
+                        {{ trans('cruds.job.fields.description') }}
                     </th>
                     <th>
                         &nbsp;
@@ -59,11 +47,11 @@
 <script>
     $(function () {
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-@can('career_delete')
+@can('job_delete')
   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}';
   let deleteButton = {
     text: deleteButtonTrans,
-    url: "{{ route('admin.careers.massDestroy') }}",
+    url: "{{ route('admin.jobs.massDestroy') }}",
     className: 'btn-danger',
     action: function (e, dt, node, config) {
       var ids = $.map(dt.rows({ selected: true }).data(), function (entry) {
@@ -95,23 +83,19 @@
     serverSide: true,
     retrieve: true,
     aaSorting: [],
-    ajax: "{{ route('admin.careers.index') }}",
+    ajax: "{{ route('admin.jobs.index') }}",
     columns: [
       { data: 'placeholder', name: 'placeholder' },
 { data: 'id', name: 'id' },
-{ data: 'full_name', name: 'full_name' },
-{ data: 'last_name', name: 'last_name' },
-{ data: 'email', name: 'email' },
-{ data: 'phone', name: 'phone' },
-{ data: 'cv', name: 'cv', sortable: false, searchable: false },
-{ data: 'job_title', name: 'job.title' },
+{ data: 'title', name: 'title' },
+{ data: 'description', name: 'description' },
 { data: 'actions', name: '{{ trans('global.actions') }}' }
     ],
     orderCellsTop: true,
     order: [[ 1, 'desc' ]],
-    pageLength: 50,
+    pageLength: 100,
   };
-  let table = $('.datatable-Career').DataTable(dtOverrideGlobals);
+  let table = $('.datatable-Job').DataTable(dtOverrideGlobals);
   $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
